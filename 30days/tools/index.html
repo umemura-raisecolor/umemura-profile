@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>お役立ち｜WRITING STUDIO</title>
+<style>
+/* Layout: 講座サイト共通の深緑×金。左に目次、右に道具を縦に並べた「ライターの道具箱」 */
+:root{--ink:#202b35;--muted:#697780;--paper:#f7f7f3;--white:#fff;--green:#315e53;--green2:#e4ece5;--line:#e3e7e2;--gold:#c3a36b;--gold2:#f6efe1;color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.75}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.topbar{min-height:66px;background:var(--white);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:10px;padding-left:max(20px,calc((100% - 1080px)/2),env(safe-area-inset-left,0px));padding-right:max(20px,calc((100% - 1080px)/2),env(safe-area-inset-right,0px))}
+.brand{font-size:13px;font-weight:800;letter-spacing:.13em;color:var(--ink);text-decoration:none}.brand span{display:block;color:var(--muted);font-size:10px;letter-spacing:.17em;font-weight:500}
+.menu{display:flex;gap:4px;flex-wrap:wrap}
+.menu a{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:99px}
+.menu a:hover{background:#f2f4f0}
+.menu a[aria-current="page"]{background:var(--green2);color:var(--green)}
+.wrap{max-width:1080px;margin:auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.head{padding-block:56px 30px}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.eyebrow:before{content:"";width:27px;height:1px;background:var(--gold)}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.35;letter-spacing:-.03em;margin:14px 0 10px;font-weight:750;text-wrap:balance}
+.lead{max-width:600px;color:#59666d;font-size:15px;line-height:2;margin:0}
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px;align-items:start;padding-bottom:70px}
+.toc{position:sticky;top:16px;background:var(--white);border:1px solid var(--line);border-radius:5px;padding:14px}
+.toc p{margin:0 0 6px;font-size:10px;font-weight:800;letter-spacing:.16em;color:var(--muted)}
+.toc a{display:flex;gap:10px;align-items:center;font-size:13px;font-weight:650;color:var(--ink);text-decoration:none;padding:8px;border-radius:4px}
+.toc a:hover{background:#f5f7f4}
+.toc a span{font:12px Georgia,serif;color:var(--green);width:22px}
+.tools{display:grid;gap:22px;min-width:0}
+.box{background:var(--white);border:1px solid var(--line);border-radius:5px;overflow:hidden;scroll-margin-top:16px}
+.box-head{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.box-head h2{font-size:18px;margin:0;letter-spacing:-.01em}
+.box-head span{font-size:11px;color:var(--muted)}
+.box-body{padding:22px}
+.box-body > p.note{margin:0 0 14px;font-size:13px;color:#5e6b70}
+/* calc */
+.calc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.calc label{display:block;font-size:12px;font-weight:750;margin-bottom:6px}
+.calc input{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:1px solid #dce3dc;border-radius:4px;background:var(--white);color:var(--ink);font-variant-numeric:tabular-nums}
+.calc input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(49,94,83,.09)}
+.result{margin-top:16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.result div{background:var(--green2);border-radius:5px;padding:14px 16px}
+.result small{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--green)}
+.result b{font:28px Georgia,serif;color:var(--green);font-variant-numeric:tabular-nums}
+.result b span{font-size:13px;font-family:inherit;margin-left:4px}
+.hint{margin:12px 0 0;font-size:12px;color:var(--muted)}
+/* templates */
+.tpl{border:1px solid var(--line);border-radius:5px;margin-top:14px}
+.tpl:first-of-type{margin-top:0}
+.tpl-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);background:#fbfbf8}
+.tpl-head b{font-size:13px}
+.tpl pre{margin:0;padding:14px;white-space:pre-wrap;word-break:break-word;font:inherit;font-size:13.5px;line-height:1.95;color:#33404a}
+.action{border-radius:4px;padding:7px 12px;font-size:12px;cursor:pointer;border:1px solid #dce3dc;background:var(--white);color:var(--green);font-weight:700;font-family:inherit}
+.action.primary{background:var(--green);color:var(--white);border-color:var(--green)}
+.copied{font-size:11px;color:var(--green);font-weight:700;margin-right:6px}
+/* checklist */
+.checks{display:grid;gap:6px}
+.checks label{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:4px;cursor:pointer;font-size:14px}
+.checks label:hover{background:#f7f8f5}
+.checks input{width:18px;height:18px;margin-top:4px;accent-color:var(--green);flex:none}
+.checks small{display:block;color:var(--muted);font-size:12px}
+.check-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.check-foot b{color:var(--green);font-family:Georgia,serif;font-size:18px}
+/* glossary */
+dl{margin:0;display:grid;gap:0}
+dl div{display:grid;grid-template-columns:10em minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px dashed var(--line)}
+dl div:last-child{border-bottom:0}
+dt{font-weight:750;font-size:14px}
+dd{margin:0;font-size:14px;color:#4a5760}
+/* links */
+.links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.links a{display:block;border:1px solid var(--line);border-radius:5px;padding:14px 16px;text-decoration:none;color:var(--ink)}
+.links a:hover{border-color:var(--green)}
+.links b{display:block;font-size:14px}
+.links span{font-size:12px;color:var(--muted)}
+.footer{border-top:1px solid var(--line);padding-block:24px 35px;color:#89918d;font-size:10px;letter-spacing:.08em}
+.footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){
+ .wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+ .topbar{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+ .head{padding-block:38px 22px}
+ .layout{grid-template-columns:1fr}
+ .toc{position:static;display:flex;flex-wrap:wrap;gap:4px}
+ .toc p{width:100%}
+ .toc a{padding:6px 10px;border:1px solid var(--line);border-radius:99px}
+ .calc{grid-template-columns:1fr}
+ .result{grid-template-columns:1fr}
+ .box-body{padding:18px 16px}
+ dl div{grid-template-columns:1fr;gap:2px}
+ .links{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+ <a class="brand" href="../">WRITING STUDIO<span>30 DAYS PRACTICE PROGRAM</span></a>
+ <nav class="menu" aria-label="講座サイトのメニュー"><a href="../">30日講座</a><a href="../blog/">ブログ</a><a href="./" aria-current="page">お役立ち</a></nav>
+</header>
+<main class="wrap">
+ <div class="head">
+  <div class="eyebrow">Toolbox</div>
+  <h1>ライターの道具箱</h1>
+  <p class="lead">案件に応募するとき、やりとりするとき、納品するとき。迷ったときにさっと開いて、そのまま使えるものを集めました。中身はこれからも少しずつ増やしていきます。</p>
+ </div>
+ <div class="layout">
+  <nav class="toc" aria-label="お役立ちの目次">
+   <p>CONTENTS</p>
+   <a href="#calc"><span>01</span>文字単価・時給の計算</a>
+   <a href="#proposal"><span>02</span>提案文のひな形</a>
+   <a href="#messages"><span>03</span>連絡の定型文</a>
+   <a href="#check"><span>04</span>納品前チェックリスト</a>
+   <a href="#words"><span>05</span>ライター用語集</a>
+   <a href="#sites"><span>06</span>よく使うサイト</a>
+  </nav>
+  <div class="tools">
+
+   <section class="box" id="calc">
+    <div class="box-head"><h2>文字単価・時給の計算</h2><span>DAY5・DAY29で使います</span></div>
+    <div class="box-body">
+     <p class="note">報酬と文字数、かかった時間を入れると、文字単価と時給が出ます。案件を選ぶときや、振り返りのときに使ってみてください。</p>
+     <div class="calc">
+      <div><label for="cPay">報酬（円）</label><input id="cPay" type="number" inputmode="numeric" min="0" value="3000"></div>
+      <div><label for="cChars">文字数</label><input id="cChars" type="number" inputmode="numeric" min="0" value="3000"></div>
+      <div><label for="cHours">作業時間（時間）</label><input id="cHours" type="number" inputmode="decimal" min="0" step="0.5" value="3"></div>
+     </div>
+     <div class="result">
+      <div><small>文字単価</small><b id="rUnit">1.0<span>円/文字</span></b></div>
+      <div><small>時給</small><b id="rHour">1,000<span>円/時間</span></b></div>
+     </div>
+     <p class="hint" id="rHint">はじめから入っている数字は例です。ご自身の案件の数字に書きかえてくださいね。</p>
+    </div>
+   </section>
+
+   <section class="box" id="proposal">
+    <div class="box-head"><h2>提案文のひな形</h2><span>DAY20で使います</span></div>
+    <div class="box-body">
+     <p class="note">【 】のところを、応募する案件に合わせて書きかえて使ってください。そのまま使い回すと伝わってしまうので、最初の一文は必ず案件ごとに変えましょう。</p>
+     <div class="tpl"><div class="tpl-head"><b>はじめての応募用</b><span><span class="copied" hidden>コピーしました</span><button class="action primary" type="button" data-copy>コピー</button></span></div>
+<pre>はじめまして、【名前】と申します。
+【案件名】の募集を拝見し、【案件で求められていること】というところに、ぜひお力になりたいと思いご連絡いたしました。
+
+私は【これまでの経験】をしてきた経験があり、【ジャンル】の記事を得意としています。
+読者の方の【悩み・気持ち】に寄り添いながら、分かりやすく書くことを大切にしています。
+
+▼ 実績（ポートフォリオ）
+【URL】
+
+▼ 対応できること
+・【文字数】程度の記事を、【1週間に◯本】ほど納品できます
+・構成案の作成から対応できます
+・ご連絡は【平日◯時〜◯時】に確認しています
+
+まずはテストライティングからでも、ぜひよろしくお願いいたします。</pre></div>
+    </div>
+   </section>
+
+   <section class="box" id="messages">
+    <div class="box-head"><h2>連絡の定型文</h2><span>DAY25で使います</span></div>
+    <div class="box-body">
+     <p class="note">受注したとき、途中のご報告、納品のとき。この3つの場面のひな形です。自分らしい言葉に整えて使ってくださいね。</p>
+     <div class="tpl"><div class="tpl-head"><b>受注のお礼</b><span><span class="copied" hidden>コピーしました</span><button class="action primary" type="button" data-copy>コピー</button></span></div>
+<pre>【担当者名】様
+
+このたびはご依頼いただき、ありがとうございます。
+【案件名】の記事、心をこめて書かせていただきます。
+
+いただいたマニュアルを確認しました。
+念のため、納期は【◯月◯日】、文字数は【◯文字】程度でお間違いないでしょうか。
+
+ご不明な点が出てきた際は、早めにご相談させていただきます。
+どうぞよろしくお願いいたします。</pre></div>
+     <div class="tpl"><div class="tpl-head"><b>途中のご報告</b><span><span class="copied" hidden>コピーしました</span><button class="action primary" type="button" data-copy>コピー</button></span></div>
+<pre>【担当者名】様
+
+お世話になっております。【名前】です。
+【案件名】の進み具合をご報告いたします。
+
+現在、構成が完成し、本文を書き進めているところです。
+予定どおり【◯月◯日】に納品できる見込みです。
+
+構成の段階で一度ご確認いただきたい場合は、お気軽にお申しつけください。
+引き続きよろしくお願いいたします。</pre></div>
+     <div class="tpl"><div class="tpl-head"><b>納品のとき</b><span><span class="copied" hidden>コピーしました</span><button class="action primary" type="button" data-copy>コピー</button></span></div>
+<pre>【担当者名】様
+
+お世話になっております。【名前】です。
+【案件名】の記事が完成しましたので、納品いたします。
+
+▼ 記事
+【URL・ファイル名】
+（文字数：約【◯文字】）
+
+マニュアルに沿って見直しをしておりますが、
+気になるところがございましたら、遠慮なくお申しつけください。
+
+今回は貴重な機会をいただき、ありがとうございました。
+また機会がございましたら、ぜひお手伝いさせてください。</pre></div>
+    </div>
+   </section>
+
+   <section class="box" id="check">
+    <div class="box-head"><h2>納品前チェックリスト</h2><span>DAY15で使います</span></div>
+    <div class="box-body">
+     <p class="note">納品する前に、上から順番にチェックしていきましょう。チェックはこの端末に残るので、記事ごとに「リセット」してから使ってください。</p>
+     <div class="checks" id="checks"></div>
+     <div class="check-foot"><span><b id="checkNum">0</b> / <span id="checkAll">10</span> 項目</span><button class="action" type="button" id="checkReset">リセット</button></div>
+    </div>
+   </section>
+
+   <section class="box" id="words">
+    <div class="box-head"><h2>ライター用語集</h2><span>求人でよく見る言葉</span></div>
+    <div class="box-body"><dl id="glossary"></dl></div>
+   </section>
+
+   <section class="box" id="sites">
+    <div class="box-head"><h2>よく使うサイト</h2><span>案件探しと発信に</span></div>
+    <div class="box-body">
+     <div class="links">
+      <a href="https://crowdworks.jp/" target="_blank" rel="noopener"><b>クラウドワークス</b><span>案件の数が多く、初心者向けの募集も見つけやすい</span></a>
+      <a href="https://www.lancers.jp/" target="_blank" rel="noopener"><b>ランサーズ</b><span>プロフィールと実績をしっかり見てもらえる</span></a>
+      <a href="https://app.shufti.jp/" target="_blank" rel="noopener"><b>シュフティ</b><span>主婦・在宅向けの、気軽に始められる案件が中心</span></a>
+      <a href="https://note.com/" target="_blank" rel="noopener"><b>note</b><span>ポートフォリオの公開と、企業へのお手紙営業に</span></a>
+     </div>
+    </div>
+   </section>
+
+  </div>
+ </div>
+</main>
+<footer class="footer"><div class="wrap"><span>30 DAYS PRACTICE PROGRAM</span><span>このページは購入者さま専用です。URLの共有はご遠慮ください。</span></div></footer>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  // 計算
+  function calc(){
+    const pay=+$('cPay').value||0,chars=+$('cChars').value||0,h=+$('cHours').value||0;
+    const unit=chars>0?pay/chars:0,hour=h>0?pay/h:0;
+    $('rUnit').innerHTML=unit.toFixed(2).replace(/0$/,'')+'<span>円/文字</span>';
+    $('rHour').innerHTML=Math.round(hour).toLocaleString()+'<span>円/時間</span>';
+    let t='はじめから入っている数字は例です。ご自身の案件の数字に書きかえてくださいね。';
+    if(chars>0&&h>0){
+      if(unit<0.5)t='文字単価が0.5円より低めです。実績づくりの時期なら、いつまで続けるかを決めておきましょう。';
+      else if(unit>=2)t='文字単価2円以上は、しっかり評価されている単価です。この調子で続けていきましょう。';
+      else t='初心者のスタートラインとしては、よくある単価です。実績が増えたら、少しずつ上げていきましょう。';
+    }
+    $('rHint').textContent=t;
+  }
+  ['cPay','cChars','cHours'].forEach(id=>$(id).addEventListener('input',calc));calc();
+
+  // コピー
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('[data-copy]');if(!b)return;
+    const tpl=b.closest('.tpl'),pre=tpl.querySelector('pre'),msg=tpl.querySelector('.copied');
+    const ok=()=>{msg.hidden=false;clearTimeout(b._t);b._t=setTimeout(()=>msg.hidden=true,2200)};
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);msg.textContent='選択しました。コピーしてください';ok()};
+    try{navigator.clipboard.writeText(pre.textContent).then(()=>{msg.textContent='コピーしました';ok()}).catch(fallback)}catch(err){fallback()}
+  });
+
+  // チェックリスト
+  const CHECKS=[
+    ['マニュアル（レギュレーション）を読み直した','表記のルール、文字数、見出しの付け方'],
+    ['タイトルにキーワードが入っている','指定がある場合は、できるだけ前の方に'],
+    ['リード文で、記事を読むと何が分かるかを伝えている',''],
+    ['結論から書いている','見出しのすぐ下で、答えを先に伝える'],
+    ['一文が長すぎない','目安は60文字くらいまで'],
+    ['表記ゆれがない','「ください／下さい」「スマホ／スマートフォン」など'],
+    ['誤字・脱字がない','声に出して読むと見つかりやすい'],
+    ['事実や数字を確認した','出典が信頼できるか、情報が古くないか'],
+    ['ほかの記事の文章をそのまま使っていない','コピーチェックツールがあれば使う'],
+    ['指定の形式・納期で提出できる','ファイル形式、提出先、ファイル名']
+  ];
+  const KEY='tools-checklist-v1';
+  let st=[];try{st=JSON.parse(localStorage.getItem(KEY)||'[]')||[]}catch(e){st=[]}
+  $('checkAll').textContent=CHECKS.length;
+  $('checks').innerHTML=CHECKS.map((c,i)=>'<label><input type="checkbox" data-i="'+i+'"'+(st[i]?' checked':'')+'><span>'+esc(c[0])+(c[1]?'<small>'+esc(c[1])+'</small>':'')+'</span></label>').join('');
+  const count=()=>{$('checkNum').textContent=CHECKS.filter((_,i)=>st[i]).length};count();
+  $('checks').addEventListener('change',e=>{const i=+e.target.dataset.i;st[i]=e.target.checked;try{localStorage.setItem(KEY,JSON.stringify(st))}catch(err){}count()});
+  $('checkReset').addEventListener('click',()=>{st=[];try{localStorage.removeItem(KEY)}catch(e){}$('checks').querySelectorAll('input').forEach(i=>i.checked=false);count()});
+
+  // 用語集
+  const WORDS=[
+    ['文字単価','1文字あたりの報酬。3,000文字で3,000円なら、文字単価1円です。'],
+    ['構成案','記事の見出しと、それぞれに書く内容をまとめた設計図。本文の前に提出を求められることがあります。'],
+    ['リード文','タイトルのすぐ下、本文の前に置く導入の文章。読者に「読む理由」を伝える大切な部分です。'],
+    ['SEO','検索結果で上の方に表示されるように、記事を工夫すること。検索する人の悩みに答えるのが基本です。'],
+    ['キーワード','読者が検索するときに入力する言葉。「指定キーワード」として案件で決められていることが多いです。'],
+    ['レギュレーション','記事を書くときのルールをまとめたもの。マニュアルと呼ばれることもあります。'],
+    ['表記ゆれ','同じ言葉なのに、書き方がばらばらになっていること。「ください／下さい」など。'],
+    ['テストライティング','本契約の前に、お試しで1本書くこと。報酬は低めに設定されていることが多いです。'],
+    ['納品','完成した記事をクライアントに提出すること。'],
+    ['修正（リライト）','納品した記事を、クライアントの指示に合わせて書き直すこと。'],
+    ['継続案件','1回きりではなく、続けて依頼してもらえる案件のこと。'],
+    ['ポートフォリオ','自分が書いた記事をまとめた作品集。実績がないうちの、いちばんの名刺になります。'],
+    ['コピーチェック','ほかの記事と文章が似すぎていないかを確かめること。専用のツールを使います。'],
+    ['監修','専門家が記事の内容を確認すること。医療や法律のジャンルで多く見られます。']
+  ];
+  $('glossary').innerHTML=WORDS.map(w=>'<div><dt>'+esc(w[0])+'</dt><dd>'+esc(w[1])+'</dd></div>').join('');
+})();
+</script>
+</body>
+</html>

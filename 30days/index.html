@@ -12,9 +12,13 @@
 [hidden]{display:none!important}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.75}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.topbar{min-height:66px;background:var(--white);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;padding-left:max(20px,calc((100% - 1080px)/2),env(safe-area-inset-left,0px));padding-right:max(20px,calc((100% - 1080px)/2),env(safe-area-inset-right,0px))}
+.topbar{min-height:66px;background:var(--white);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:10px;padding-left:max(20px,calc((100% - 1080px)/2),env(safe-area-inset-left,0px));padding-right:max(20px,calc((100% - 1080px)/2),env(safe-area-inset-right,0px))}
 .brand{font-size:13px;font-weight:800;letter-spacing:.13em}.brand span{display:block;color:var(--muted);font-size:10px;letter-spacing:.17em;font-weight:500}
-.topnote{font-size:12px;color:var(--muted)}
+.brand{color:var(--ink);text-decoration:none}
+.menu{display:flex;gap:4px;flex-wrap:wrap}
+.menu a{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:99px}
+.menu a:hover{background:#f2f4f0}
+.menu a[aria-current="page"]{background:var(--green2);color:var(--green)}
 .wrap{max-width:1080px;margin:auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
 .hero{padding-block:65px 36px;display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center}
 .eyebrow{display:flex;align-items:center;gap:10px;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
@@ -109,7 +113,6 @@ textarea:disabled{background:#f6f7f4;cursor:not-allowed}
 .footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 @media(max-width:760px){
- .topnote{display:none}
  .wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
  .topbar{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
  .hero{grid-template-columns:1fr;gap:22px;padding-block:45px 26px}.hero-art{min-height:200px}
@@ -127,7 +130,7 @@ textarea:disabled{background:#f6f7f4;cursor:not-allowed}
 </head>
 <body>
 
-<header class="topbar"><div class="brand">WRITING STUDIO<span>30 DAYS PRACTICE PROGRAM</span></div><div class="topnote">自分のペースで、ひとつずつ。</div></header>
+<header class="topbar"><a class="brand" href="./">WRITING STUDIO<span>30 DAYS PRACTICE PROGRAM</span></a><nav class="menu" aria-label="講座サイトのメニュー"><a href="./" aria-current="page">30日講座</a><a href="blog/">ブログ</a><a href="tools/">お役立ち</a></nav></header>
 <main>
 <section class="wrap hero">
  <div>
@@ -190,7 +193,8 @@ textarea:disabled{background:#f6f7f4;cursor:not-allowed}
 (function(){
   // ── 毎週の更新はここだけ書き換える ──────────────────
   const NEWS=[
-    {date:'2026.10.17',text:'講座サイトをオープンしました。30日ぶんのメッセージとワークを公開しています',isNew:true}
+    {date:'2026.10.17',text:'ブログと「お役立ち」のページを公開しました。提案文のひな形や文字単価の計算もあります',isNew:true},
+    {date:'2026.10.17',text:'講座サイトをオープンしました。30日ぶんのメッセージとワークを公開しています'}
   ];
   const CHAPTERS=[
  {

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>講座ブログ｜WRITING STUDIO</title>
+<style>
+/* Layout: 講座サイト共通の深緑×金。上にメニュー、記事一覧はカード、記事を開くと読みものの幅で一本表示 */
+:root{--ink:#202b35;--muted:#697780;--paper:#f7f7f3;--white:#fff;--green:#315e53;--green2:#e4ece5;--line:#e3e7e2;--gold:#c3a36b;color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.75}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.topbar{min-height:66px;background:var(--white);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:10px;padding-left:max(20px,calc((100% - 1080px)/2),env(safe-area-inset-left,0px));padding-right:max(20px,calc((100% - 1080px)/2),env(safe-area-inset-right,0px))}
+.brand{font-size:13px;font-weight:800;letter-spacing:.13em;color:var(--ink);text-decoration:none}.brand span{display:block;color:var(--muted);font-size:10px;letter-spacing:.17em;font-weight:500}
+.menu{display:flex;gap:4px;flex-wrap:wrap}
+.menu a{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:99px}
+.menu a:hover{background:#f2f4f0}
+.menu a[aria-current="page"]{background:var(--green2);color:var(--green)}
+.wrap{max-width:1080px;margin:auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.head{padding-block:56px 30px}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.eyebrow:before{content:"";width:27px;height:1px;background:var(--gold)}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.35;letter-spacing:-.03em;margin:14px 0 10px;font-weight:750;text-wrap:balance}
+.lead{max-width:560px;color:#59666d;font-size:15px;line-height:2;margin:0}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;padding-bottom:70px}
+.card{display:flex;flex-direction:column;gap:8px;background:var(--white);border:1px solid var(--line);border-radius:5px;padding:22px;text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--green);transform:translateY(-2px)}
+.meta{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--muted)}
+.meta time{font-family:Georgia,serif;font-variant-numeric:tabular-nums}
+.tag{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--green);background:var(--green2);border-radius:99px;padding:2px 9px}
+.new{font-size:10px;font-weight:800;color:var(--white);background:var(--gold);border-radius:99px;padding:2px 8px}
+.card h2{font-size:18px;line-height:1.55;margin:0;letter-spacing:-.01em}
+.card p{margin:0;font-size:13px;color:#59666d}
+.card .more{margin-top:auto;font-size:12px;font-weight:700;color:var(--green)}
+.empty{color:var(--muted);font-size:14px}
+article{max-width:680px;margin:0 auto;padding-block:48px 70px}
+article h1{font-size:clamp(24px,3.6vw,34px)}
+.back{display:inline-block;font-size:13px;font-weight:700;color:var(--green);text-decoration:none;margin-bottom:18px}
+.body{margin-top:26px;display:grid;gap:18px;font-size:16px;line-height:2.05;color:#33404a}
+.body p{margin:0}
+.body h3{font-size:18px;margin:14px 0 0;padding-left:12px;border-left:3px solid var(--gold);line-height:1.6}
+.sign{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.footer{border-top:1px solid var(--line);padding-block:24px 35px;color:#89918d;font-size:10px;letter-spacing:.08em}
+.footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){
+ .wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+ .topbar{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+ .head{padding-block:38px 22px}
+ .list{grid-template-columns:1fr}
+ article{padding-block:32px 56px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+ <a class="brand" href="../">WRITING STUDIO<span>30 DAYS PRACTICE PROGRAM</span></a>
+ <nav class="menu" aria-label="講座サイトのメニュー"><a href="../">30日講座</a><a href="./" aria-current="page">ブログ</a><a href="../tools/">お役立ち</a></nav>
+</header>
+<main>
+ <section class="wrap" id="listView">
+  <div class="head">
+   <div class="eyebrow">Blog</div>
+   <h1>講座ブログ</h1>
+   <p class="lead">ライターの仕事のこと、書くことのこと、日々の気づきを、週に1回くらいのペースでゆるく綴っていきます。講座のDAYと合わせて、気軽に読んでくださいね。</p>
+  </div>
+  <div class="list" id="list"></div>
+ </section>
+ <div class="wrap" id="postView" hidden>
+  <article>
+   <a class="back" href="#">← 記事一覧へ</a>
+   <div class="meta"><time id="pDate"></time><span class="tag" id="pTag"></span></div>
+   <h1 id="pTitle"></h1>
+   <div class="body" id="pBody"></div>
+   <p class="sign">梅村 恵美｜売れる言葉を書く人</p>
+  </article>
+ </div>
+</main>
+<footer class="footer"><div class="wrap"><span>30 DAYS PRACTICE PROGRAM</span><span>このページは購入者さま専用です。URLの共有はご遠慮ください。</span></div></footer>
+<script>
+(function(){
+  // ── 新しい記事は、この配列のいちばん上に足す ──────────
+  // id は英数字とハイフンだけ（URLの #の後ろに使います）。本文は1段落ずつ。"## " で始まる行は見出しになります。
+  const POSTS=[
+    {id:'open',date:'2026.10.17',tag:'お知らせ',isNew:true,
+     title:'講座サイトをオープンしました',
+     body:[
+      'はじめまして、梅村恵美です。30日実践講座のサイトに来てくださって、ありがとうございます。',
+      'このサイトは、ライターとして初めての案件を受けるところまで、一人で迷わずに進んでいけるように作りました。講座って、読んだだけで終わってしまうことが多いんですよね。なので、1日ひとつずつ読んで、手を動かして、書き込んでいけるように、DAYごとにメッセージとワークを用意しています。',
+      '## このサイトの使い方',
+      '「30日講座」のページでは、DAY1から順番に進めていけます。書き込んだ内容は、お使いのスマホやパソコンに残るので、途中でお休みしても大丈夫です。できたDAYには「完了」をつけて、自分の進み具合を楽しんでくださいね。',
+      '「お役立ち」のページには、文字単価の計算、提案文のひな形、納品のときの連絡文など、実際に案件を受けるときに使えるものをまとめています。DAYを進めながら、必要なときに開いてみてください。',
+      '## ブログについて',
+      'このブログは、週に1回くらいのペースで、気ままに更新していきます。ライターの仕事の裏側や、私が実際にやってみて気づいたこと、講座に入りきらなかったちょっとしたコツなどを書いていく予定です。',
+      '30日って長いようで、毎日少しずつ進めていくと、あっという間なんですよね。焦らなくていいので、自分のペースで、一緒に一歩ずつ進んでいきましょう。'
+     ]}
+  ];
+  // ─────────────────────────────────────────────
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const plain=p=>p.replace(/^## /,'');
+  $('list').innerHTML=POSTS.length?POSTS.map(p=>{
+    const ex=p.body.filter(b=>!b.startsWith('## ')).join('').slice(0,70)+'…';
+    return '<a class="card" href="#'+esc(p.id)+'"><div class="meta"><time>'+esc(p.date)+'</time><span class="tag">'+esc(p.tag)+'</span>'+(p.isNew?'<span class="new">NEW</span>':'')+'</div><h2>'+esc(p.title)+'</h2><p>'+esc(ex)+'</p><span class="more">続きを読む →</span></a>';
+  }).join(''):'<p class="empty">まだ記事はありません。</p>';
+  function route(){
+    const id=location.hash.replace('#','');
+    const p=POSTS.find(x=>x.id===id);
+    $('listView').hidden=!!p;$('postView').hidden=!p;
+    if(p){
+      $('pDate').textContent=p.date;$('pTag').textContent=p.tag;$('pTitle').textContent=p.title;
+      $('pBody').innerHTML=p.body.map(b=>b.startsWith('## ')?'<h3>'+esc(plain(b))+'</h3>':'<p>'+esc(b)+'</p>').join('');
+      document.title=p.title+'｜講座ブログ';window.scrollTo(0,0);
+    }else{document.title='講座ブログ｜WRITING STUDIO'}
+  }
+  window.addEventListener('hashchange',route);route();
+})();
+</script>
+</body>
+</html>
