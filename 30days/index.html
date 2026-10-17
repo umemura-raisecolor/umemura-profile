@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>30日実践講座</title>
+<style>
+/* Layout: いただいたデザイン案（深緑×金・左に30日ナビ、右にその日のワーク）をベースに、章の区切り・公開状態・お知らせを足した講座の拠点ページ */
+:root{--ink:#202b35;--muted:#697780;--paper:#f7f7f3;--white:#fff;--green:#315e53;--green2:#e4ece5;--line:#e3e7e2;--gold:#c3a36b;--gold2:#f4ecdc;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.75}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.topbar{min-height:66px;background:var(--white);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;padding-left:max(20px,calc((100% - 1080px)/2),env(safe-area-inset-left,0px));padding-right:max(20px,calc((100% - 1080px)/2),env(safe-area-inset-right,0px))}
+.brand{font-size:13px;font-weight:800;letter-spacing:.13em}.brand span{display:block;color:var(--muted);font-size:10px;letter-spacing:.17em;font-weight:500}
+.topnote{font-size:12px;color:var(--muted)}
+.wrap{max-width:1080px;margin:auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.hero{padding-block:65px 36px;display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.eyebrow:before{content:"";width:27px;height:1px;background:var(--gold)}
+h1{font-size:clamp(32px,4.5vw,55px);line-height:1.3;letter-spacing:-.045em;margin:18px 0;font-weight:750;text-wrap:balance}
+h1 em{font-style:normal;color:var(--green)}
+.lead{max-width:560px;color:#59666d;font-size:15px;line-height:2;margin:0}
+.lead + .lead{margin-top:8px}
+.hero-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:24px;font-size:12px;color:var(--muted)}
+.pill{border:1px solid #d7dfd8;border-radius:99px;padding:5px 12px;color:var(--green);background:var(--white)}
+.hero-art{min-height:275px;background:#e8eee8;border-radius:5px;overflow:hidden;padding:25px;display:flex;align-items:flex-end;position:relative}
+.hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid rgba(49,94,83,.22);border-radius:50%}
+.hero-art:before{width:260px;height:260px;right:-35px;top:-80px}.hero-art:after{width:185px;height:185px;right:5px;top:-38px}
+.art-card{z-index:1;position:relative;background:rgba(255,255,255,.94);padding:23px;width:100%;box-shadow:0 18px 45px rgba(37,58,49,.08)}
+.art-small{font-size:10px;letter-spacing:.18em;color:var(--green);font-weight:800}
+.art-number{font-family:Georgia,serif;font-size:58px;line-height:1.2;color:var(--green);margin:8px 0}
+.art-caption{font-size:13px;color:#59666d}
+
+/* お知らせ */
+.news{padding-block:0 30px}
+.news-box{background:var(--white);border:1px solid var(--line);border-radius:5px;display:grid;grid-template-columns:auto 1fr;gap:0}
+.news-label{padding:18px 20px;border-right:1px solid var(--line);font-size:10px;letter-spacing:.18em;color:var(--green);font-weight:800;display:flex;align-items:center}
+.news-body{padding:14px 20px;min-width:0}
+.news-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.news-list li{display:flex;gap:14px;font-size:13px;align-items:baseline;flex-wrap:wrap}
+.news-list time{font:12px Georgia,serif;color:var(--muted);font-variant-numeric:tabular-nums}
+.new{font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--white);background:var(--gold);border-radius:99px;padding:1px 8px}
+.news-promise{margin:8px 0 0;font-size:11px;color:var(--muted)}
+
+main .section{padding-block:10px 70px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:17px}
+.kicker{font-size:10px;letter-spacing:.18em;color:var(--green);font-weight:800}
+h2{font-size:25px;letter-spacing:-.025em;margin:5px 0 0}
+.progress-label{text-align:right;color:var(--muted);font-size:11px}
+.progress-label strong{font:28px Georgia,serif;color:var(--green)}
+.progress-track{height:5px;background:#e2e7e1;margin-bottom:28px;border-radius:99px;overflow:hidden}
+.progress-fill{width:0;height:100%;background:var(--green);transition:width .2s}
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:22px;align-items:start}
+.sidebar,.work-panel{background:var(--white);border:1px solid var(--line);border-radius:5px;overflow:hidden;min-width:0}
+.side-head,.work-head{padding:18px 20px;border-bottom:1px solid var(--line)}
+.side-head strong,.work-head strong{font-size:14px}
+.side-head p{font-size:11px;color:var(--muted);margin:4px 0 0}
+.day-nav{padding:8px;max-height:680px;overflow-y:auto}
+.ch-label{font-size:10px;letter-spacing:.16em;color:var(--muted);font-weight:800;padding:12px 9px 4px}
+.ch-label b{color:var(--green);margin-right:6px}
+.day-link{width:100%;display:flex;align-items:center;gap:11px;padding:9px;border:0;border-radius:4px;background:transparent;text-align:left;cursor:pointer;color:var(--ink);font:inherit}
+.day-link:hover{background:#f5f7f4}.day-link.active{background:var(--green2);color:var(--green)}
+.day-index{font:12px Georgia,serif;border:1px solid #dfe6df;width:31px;height:31px;display:grid;place-items:center;border-radius:50%;flex-shrink:0;background:var(--white)}
+.day-link.done .day-index{background:var(--green);border-color:var(--green);color:var(--white)}
+.day-link.soon{color:#9aa39d}
+.day-link.soon .day-index{border-style:dashed;color:#9aa39d}
+.day-link-text{font-size:12px;font-weight:650;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.day-status{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.06em;white-space:nowrap}
+.day-status.ok{color:var(--green)}
+.day-status.open{color:var(--gold)}
+.day-status.wait{color:#b3bab5;font-weight:600}
+
+.work-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.work-head span{font-size:11px;color:var(--muted)}
+.work-body{padding:25px}
+.day-label{font-size:10px;letter-spacing:.16em;color:var(--green);font-weight:800}
+h3{font-size:22px;line-height:1.5;margin:5px 0 4px;letter-spacing:-.02em;text-wrap:balance}
+.day-sub{font-size:13px;color:var(--muted);margin:0}
+.prompt{font-size:13px;color:#5e6b70;background:#f7f8f5;border-left:3px solid var(--gold);padding:13px 15px;margin:17px 0 20px}
+.open-work{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--green2);border-radius:5px;padding:16px 18px;margin-bottom:22px}
+.open-work p{margin:0;font-size:13px;color:var(--green);font-weight:700}
+.open-work p small{display:block;font-weight:500;color:#59666d;font-size:12px}
+a.action{display:inline-block;text-decoration:none}
+.soon-box{border:1px dashed #cdd6cf;border-radius:5px;padding:22px 18px;text-align:center;color:var(--muted);font-size:13px;margin-bottom:22px;background:#fbfbf8}
+.soon-box b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+label{display:block;font-size:13px;font-weight:750;margin:0 0 8px}
+textarea{display:block;width:100%;min-height:170px;resize:vertical;border:1px solid #dce3dc;border-radius:4px;padding:15px;font:14px/1.8 inherit;font-family:inherit;color:var(--ink);background:var(--white);outline:none}
+textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(49,94,83,.09)}
+textarea::placeholder{color:#9aa39d}
+textarea:disabled{background:#f6f7f4;cursor:not-allowed}
+.form-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.save-status{font-size:11px;color:var(--muted)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.action{border-radius:4px;padding:10px 14px;font-size:12px;cursor:pointer;border:1px solid #dce3dc;background:var(--white);color:var(--green);font-weight:700;font-family:inherit}
+.action.primary{background:var(--green);color:var(--white);border-color:var(--green)}
+.action:hover{filter:brightness(.97)}
+.action:disabled{opacity:.45;cursor:not-allowed}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--ink);margin-top:10px;justify-content:flex-end}
+.bottom-nav{display:flex;justify-content:space-between;gap:10px;padding:16px 20px;border-top:1px solid var(--line);background:#fcfcfa}
+.footer{border-top:1px solid var(--line);padding-block:24px 35px;color:#89918d;font-size:10px;letter-spacing:.08em}
+.footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media(max-width:760px){
+ .topnote{display:none}
+ .wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+ .topbar{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+ .hero{grid-template-columns:1fr;gap:22px;padding-block:45px 26px}.hero-art{min-height:200px}
+ .news-box{grid-template-columns:1fr}.news-label{border-right:0;border-bottom:1px solid var(--line);padding:12px 16px}
+ .layout{grid-template-columns:1fr}
+ .day-nav{display:flex;overflow-x:auto;gap:5px;padding:9px;max-height:none}
+ .ch-label{display:none}
+ .day-link{width:auto;flex:0 0 auto;padding:7px}.day-link-text{display:none}.day-status{display:none}
+ .day-index{width:33px;height:33px}.side-head{padding:13px 16px}
+ .section-head{align-items:center}h2{font-size:21px}
+ .work-body{padding:20px 17px}h3{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar"><div class="brand">WRITING STUDIO<span>30 DAYS PRACTICE PROGRAM</span></div><div class="topnote">自分のペースで、ひとつずつ。</div></header>
+<main>
+<section class="wrap hero">
+ <div>
+  <div class="eyebrow">Your 30-day journey</div>
+  <h1>30日で、<br><em>ライターとして</em><br>初案件をとる。</h1>
+  <p class="lead">読むだけで終わらせない、実践型のライティング講座です。1日ひとつのワークに取り組んで、書いて、整えていって、その先に、はじめての案件に応募して受注するところまで一緒に進みましょう。</p>
+  <p class="lead">中身はこれからも随時追加していくので、更新を楽しみにしていてくださいね。</p>
+  <div class="hero-meta"><span class="pill">全30ステップ</span><span class="pill" id="openPill">公開中 0日</span><span>書き込んで進める実践型ワーク</span></div>
+ </div>
+ <div class="hero-art"><div class="art-card"><div class="art-small">SMALL STEPS, REAL PROGRESS</div><div class="art-number">30 days</div><div class="art-caption">書くことを、あなたの仕事へ。</div></div></div>
+</section>
+
+<section class="wrap news" aria-label="お知らせ">
+ <div class="news-box">
+  <div class="news-label">NEWS</div>
+  <div class="news-body">
+   <ul class="news-list" id="newsList"></ul>
+   <p class="news-promise">毎週少しずつ、新しいDAYやワークを追加していきます。買い切りなので、追加ぶんも追加料金なしでそのまま見られます。</p>
+  </div>
+ </div>
+</section>
+
+<section class="wrap section">
+ <div class="section-head"><div><div class="kicker">YOUR PROGRESS</div><h2>今日の一歩を、ここから。</h2></div><div class="progress-label"><strong><span id="count">0</span> / 30</strong><br>DAY COMPLETE</div></div>
+ <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+ <div class="layout">
+  <aside class="sidebar"><div class="side-head"><strong>30日間のワーク</strong><p>DAYを選ぶと、その日のワークが開きます。</p></div><nav class="day-nav" id="dayNav" aria-label="30日間のワーク"></nav></aside>
+  <section class="work-panel">
+   <div class="work-head"><strong>WORKSHEET / 今日のワーク</strong><span>入力内容はこのブラウザ内に保存</span></div>
+   <div class="work-body">
+    <div class="day-label" id="dayLabel">DAY 01 / 30</div>
+    <h3 id="dayTitle"></h3>
+    <p class="day-sub" id="daySub"></p>
+    <div class="prompt" id="dayPrompt"></div>
+    <div class="open-work" id="openWork" hidden>
+     <p>このDAYの書き込み式ワーク<small>専用ページで、問いに答えながら進められます</small></p>
+     <a class="action primary" id="openLink" href="#">ワークを開く →</a>
+    </div>
+    <div class="soon-box" id="soonBox" hidden><b>このDAYは準備中です</b>公開されたら、お知らせ欄でお伝えしますね。</div>
+    <label for="answer">あなたの気づきメモ</label>
+    <textarea id="answer" placeholder="ワークをやってみて気づいたことを、自由に書いてください。きれいにまとめなくても大丈夫です。"></textarea>
+    <div class="form-foot">
+     <span class="save-status" id="saveStatus">このブラウザに自動保存されます</span>
+     <div class="actions"><button class="action" type="button" id="clearBtn">メモを消去</button><button class="action primary" type="button" id="doneBtn">このDAYを完了にする</button></div>
+    </div>
+    <div class="confirm" id="confirmBox" hidden><span>このDAYのメモを消しますか？</span><button class="action primary" type="button" id="confirmYes">消す</button><button class="action" type="button" id="confirmNo">やめる</button></div>
+   </div>
+   <div class="bottom-nav"><button class="action" type="button" id="prevBtn">← 前の日</button><button class="action" type="button" id="nextBtn">次の日 →</button></div>
+  </section>
+ </div>
+</section>
+</main>
+<footer class="footer"><div class="wrap"><span>30 DAYS PRACTICE PROGRAM</span><span>このページは購入者さま専用です。URLの共有はご遠慮ください。</span></div></footer>
+
+<script>
+(function(){
+  // ── 毎週の更新はここだけ書き換える ──────────────────
+  const NEWS=[
+    {date:'2026.10.17',text:'講座サイトをオープンしました。DAY1から順番に公開していきます',isNew:true}
+  ];
+  const CHAPTERS=[
+    {no:1,title:'強みと書くジャンルを決める',days:[
+      {t:'自分の経験から、書けるジャンルを出す',s:'仕事・暮らし・好きなことを棚卸しする'},
+      {t:'そのジャンルに仕事があるか確かめる',s:'求人の数と、読者の悩みの深さ'},
+      {t:'「〇〇に強いライター」をつくる',s:'経験を掛け合わせて、選ばれる肩書きにする'},
+      {t:'求人をのぞいてみる',s:'クラウドワークス・ランサーズで案件を10件見る'},
+      {t:'単価の相場を知る',s:'文字単価と、初心者のスタートライン'},
+      {t:'ライターとしての自己紹介を一文にする',s:'誰の、どんな文章が書けるのか'}]},
+    {no:2,title:'伝わる文章の基本',days:[
+      {t:'Webの文章は結論から',s:'読まれる文章と読まれない文章の違い'},
+      {t:'読者を一人に決めて書く',s:'誰に向けた文章かで、言葉が変わる'},
+      {t:'見出しで構成をつくる',s:'書く前に、骨組みを決める'},
+      {t:'キーワードとSEOの基本',s:'検索する人の気持ちを読む'},
+      {t:'読みやすい文章に整える',s:'一文を短く、ひらがなと漢字のバランス'},
+      {t:'AIで下書きとリサーチをする',s:'速く書くコツと、気をつけること'}]},
+    {no:3,title:'実績をつくる',days:[
+      {t:'ポートフォリオ記事のテーマを決める',s:'応募したい案件から逆算する'},
+      {t:'ポートフォリオ1本目を書く',s:'2,000〜3,000文字の記事を仕上げる'},
+      {t:'推敲とセルフチェック',s:'納品前に見直す10のポイント'},
+      {t:'noteやブログで公開する',s:'見せられる場所に置く'},
+      {t:'2本目は別の型で書く',s:'体験談・まとめ記事・インタビュー'},
+      {t:'ポートフォリオを1枚にまとめる',s:'クライアントが見やすい形'}]},
+    {no:4,title:'案件に応募する',days:[
+      {t:'プロフィールを整える',s:'この人に頼みたいと思われる自己紹介'},
+      {t:'選ばれる提案文の書き方',s:'テンプレートを自分仕様にする'},
+      {t:'初心者でも通る案件の選び方',s:'避けたい案件の見分け方'},
+      {t:'テストライティングの乗り越え方',s:'修正指示を味方にする'},
+      {t:'10件応募してみる',s:'数をこなして感覚をつかむ'},
+      {t:'企業へ直接お手紙を送る',s:'noteのメッセージで仕事をつくる'}]},
+    {no:5,title:'続けて、単価を上げる',days:[
+      {t:'納品とクライアントへの連絡',s:'また頼みたいと思われるやりとり'},
+      {t:'修正依頼に向き合う',s:'落ち込まずに、次に活かす'},
+      {t:'継続案件につなげる',s:'1回きりで終わらせない'},
+      {t:'単価交渉のタイミング',s:'言い出し方と、実績の見せ方'},
+      {t:'作業時間を管理する',s:'時給で考えるクセをつける'},
+      {t:'30日の振り返りと次の目標',s:'ここまでの自分をほめて、次へ'}]}
+  ];
+  // ─────────────────────────────────────────────
+
+  const DAYS=[];CHAPTERS.forEach(ch=>ch.days.forEach(d=>DAYS.push(Object.assign({ch:ch.no,chTitle:ch.title},d))));
+  DAYS.forEach((d,i)=>d.n=i+1);
+  const KEY_A='course30-answers-v1',KEY_C='course30-progress-v1',KEY_CUR='course30-current-v1';
+  const load=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch(e){return f}};
+  const answers=load(KEY_A,{})||{};
+  const doneObj=load(KEY_C,{})||{};
+  const completed=new Set(Object.keys(doneObj).map(Number));
+  const firstOpen=DAYS.find(d=>d.url&&!completed.has(d.n))||DAYS[0];
+  let current=load(KEY_CUR,null)||firstOpen.n;
+  if(current<1||current>30)current=1;
+  const $=id=>document.getElementById(id);
+  const pad=n=>String(n).padStart(2,'0');
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function persist(){try{
+    localStorage.setItem(KEY_A,JSON.stringify(answers));
+    const o={};completed.forEach(n=>o[n]=1);localStorage.setItem(KEY_C,JSON.stringify(o));
+    localStorage.setItem(KEY_CUR,JSON.stringify(current));
+  }catch(e){}}
+
+  $('newsList').innerHTML=NEWS.map(n=>'<li><time>'+esc(n.date)+'</time>'+(n.isNew?'<span class="new">NEW</span>':'')+'<span>'+esc(n.text)+'</span></li>').join('');
+  $('openPill').textContent='公開中 '+DAYS.filter(d=>d.url).length+'日';
+
+  function renderNav(){
+    const nav=$('dayNav');let html='';let lastCh=0;
+    DAYS.forEach(d=>{
+      if(d.ch!==lastCh){html+='<div class="ch-label"><b>CH.'+d.ch+'</b>'+esc(d.chTitle)+'</div>';lastCh=d.ch}
+      const done=completed.has(d.n),open=!!d.url;
+      const cls='day-link'+(d.n===current?' active':'')+(done?' done':'')+(open?'':' soon');
+      const st=done?'<span class="day-status ok">✓ 完了</span>':open?'<span class="day-status open">公開中</span>':'<span class="day-status wait">準備中</span>';
+      html+='<button type="button" class="'+cls+'" data-n="'+d.n+'" aria-label="DAY '+d.n+': '+esc(d.t)+(open?'':'（準備中）')+'"'+(d.n===current?' aria-current="true"':'')+'><span class="day-index">'+pad(d.n)+'</span><span class="day-link-text">'+esc(d.t)+'</span>'+st+'</button>';
+    });
+    nav.innerHTML=html;
+    const act=nav.querySelector('.active');
+    if(act&&window.matchMedia('(max-width:760px)').matches)act.scrollIntoView({block:'nearest',inline:'center'});
+  }
+  function render(){
+    const d=DAYS[current-1],open=!!d.url;
+    renderNav();
+    $('dayLabel').textContent='DAY '+pad(d.n)+' / 30 ・ CHAPTER '+d.ch+' '+d.chTitle;
+    $('dayTitle').textContent=d.t;
+    $('daySub').textContent=d.s;
+    $('dayPrompt').textContent=d.p||(open?'':'このDAYでは「'+d.s+'」に取り組みます。公開までもう少しお待ちくださいね。');
+    $('dayPrompt').hidden=!$('dayPrompt').textContent;
+    $('openWork').hidden=!open;$('soonBox').hidden=open;
+    if(open)$('openLink').href=d.url;
+    const ta=$('answer');ta.value=answers[d.n]||'';ta.disabled=!open;
+    $('doneBtn').disabled=!open;$('clearBtn').disabled=!open;
+    $('doneBtn').textContent=completed.has(d.n)?'完了を取り消す':'このDAYを完了にする';
+    $('prevBtn').disabled=current===1;$('nextBtn').disabled=current===30;
+    $('saveStatus').textContent=open?'入力内容はこのブラウザ内に自動保存されます':'公開されると書き込めるようになります';
+    $('confirmBox').hidden=true;
+    const n=[...completed].filter(x=>DAYS[x-1]&&DAYS[x-1].url).length;
+    $('count').textContent=n;$('progress').style.width=(n/30*100)+'%';
+  }
+  function go(n){current=n;persist();render()}
+  $('dayNav').addEventListener('click',e=>{const b=e.target.closest('.day-link');if(b)go(+b.dataset.n)});
+  $('answer').addEventListener('input',()=>{answers[current]=$('answer').value;persist();$('saveStatus').textContent='保存しました'});
+  $('doneBtn').addEventListener('click',()=>{completed.has(current)?completed.delete(current):completed.add(current);persist();render()});
+  $('clearBtn').addEventListener('click',()=>{$('confirmBox').hidden=false});
+  $('confirmNo').addEventListener('click',()=>{$('confirmBox').hidden=true});
+  $('confirmYes').addEventListener('click',()=>{answers[current]='';persist();$('answer').value='';$('confirmBox').hidden=true;$('saveStatus').textContent='メモを消去しました'});
+  $('prevBtn').addEventListener('click',()=>{if(current>1)go(current-1)});
+  $('nextBtn').addEventListener('click',()=>{if(current<30)go(current+1)});
+  render();
+})();
+</script>
+
+</body>
+</html>
