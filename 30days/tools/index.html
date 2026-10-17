@@ -7,7 +7,7 @@
 <title>お役立ち｜WRITING STUDIO</title>
 <style>
 /* Layout: 講座サイト共通の深緑×金。左に目次、右に道具を縦に並べた「ライターの道具箱」 */
-:root{--ink:#202b35;--muted:#697780;--paper:#f7f7f3;--white:#fff;--green:#315e53;--green2:#e4ece5;--line:#e3e7e2;--gold:#c3a36b;--gold2:#f6efe1;color-scheme:light}
+:root{--ink:#1b2440;--muted:#4f5a75;--paper:#f2f5fb;--white:#fff;--green:#17264d;--green2:#e6ebf6;--line:#d9dfec;--gold:#c9a45c;--gold2:#f7f0e1;--navy:#17264d;--navy2:#22356a;--on-navy:#ffffff;--on-navy-muted:#c6cde3;color-scheme:light}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.75}
@@ -94,6 +94,35 @@ dd{margin:0;font-size:14px;color:#4a5760}
  .links{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* 濃紺ベースの上書き */
+body{font-size:16.5px}
+.topbar{background:var(--navy);border-bottom:3px solid var(--gold)}
+.brand,.brand:visited{color:var(--on-navy)}.brand span{color:var(--on-navy-muted)}
+.menu a{color:var(--on-navy-muted)}
+.menu a:hover{background:rgba(255,255,255,.1);color:var(--on-navy)}
+.menu a[aria-current="page"]{background:var(--gold);color:var(--navy)}
+.footer{background:var(--navy);color:var(--on-navy-muted);border-top:3px solid var(--gold)}
+.eyebrow{color:var(--gold)}
+.lead{color:#3d4763}
+
+.head{position:relative;background:var(--navy);box-shadow:0 0 0 100vmax var(--navy);clip-path:inset(0 -100vmax);color:var(--on-navy)}
+.head h1{color:var(--on-navy)}
+.head h1 em{color:var(--gold)}
+.head .lead{color:var(--on-navy-muted)}
+.head .eyebrow{color:var(--gold)}
+
+.head{margin-bottom:30px}
+.box-head{background:var(--navy);color:var(--on-navy);border-bottom:3px solid var(--gold)}
+.box-head span{color:var(--on-navy-muted)}
+.toc a span{color:#9a7a36}
+.result div{background:var(--green2)}
+.result small{color:var(--navy)}
+.result b{color:var(--navy)}
+.tpl-head{background:var(--gold2)}
+.tpl pre,dd{color:#2a3350}
+.checks input{accent-color:var(--navy)}
+.check-foot b{color:var(--navy)}
 </style>
 </head>
 <body>

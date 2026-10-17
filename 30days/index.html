@@ -7,7 +7,7 @@
 <title>30日実践講座</title>
 <style>
 /* Layout: いただいたデザイン案（深緑×金・左に30日ナビ、右にその日のワーク）をベースに、章の区切り・公開状態・お知らせを足した講座の拠点ページ */
-:root{--ink:#202b35;--muted:#697780;--paper:#f7f7f3;--white:#fff;--green:#315e53;--green2:#e4ece5;--line:#e3e7e2;--gold:#c3a36b;--gold2:#f4ecdc;color-scheme:light}
+:root{--ink:#1b2440;--muted:#4f5a75;--paper:#f2f5fb;--white:#fff;--green:#17264d;--green2:#e6ebf6;--line:#d9dfec;--gold:#c9a45c;--gold2:#f7f0e1;--navy:#17264d;--navy2:#22356a;--on-navy:#ffffff;--on-navy-muted:#c6cde3;color-scheme:light}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.75}
@@ -126,6 +126,50 @@ textarea:disabled{background:#f6f7f4;cursor:not-allowed}
  .work-body{padding:20px 17px}h3{font-size:20px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* 濃紺ベースの上書き */
+body{font-size:16.5px}
+.topbar{background:var(--navy);border-bottom:3px solid var(--gold)}
+.brand,.brand:visited{color:var(--on-navy)}.brand span{color:var(--on-navy-muted)}
+.menu a{color:var(--on-navy-muted)}
+.menu a:hover{background:rgba(255,255,255,.1);color:var(--on-navy)}
+.menu a[aria-current="page"]{background:var(--gold);color:var(--navy)}
+.footer{background:var(--navy);color:var(--on-navy-muted);border-top:3px solid var(--gold)}
+.eyebrow{color:var(--gold)}
+.lead{color:#3d4763}
+
+.hero{position:relative;background:var(--navy);box-shadow:0 0 0 100vmax var(--navy);clip-path:inset(0 -100vmax);color:var(--on-navy)}
+.hero h1{color:var(--on-navy)}
+.hero h1 em{color:var(--gold)}
+.hero .lead{color:var(--on-navy-muted)}
+.hero .eyebrow{color:var(--gold)}
+
+.hero{margin-bottom:34px}
+.hero .pill{background:transparent;border-color:rgba(201,164,92,.6);color:var(--gold)}
+.hero .hero-meta{color:var(--on-navy-muted)}
+.hero-art{background:var(--navy2)}
+.hero-art:before,.hero-art:after{border-color:rgba(201,164,92,.35)}
+.art-card{background:var(--white)}
+.art-number{color:var(--navy)}
+.art-small{color:var(--gold)}
+.art-caption{color:#3d4763}
+.kicker{color:var(--gold)}
+.progress-label strong{color:var(--navy)}
+.progress-fill{background:var(--gold)}
+.side-head{background:var(--navy);color:var(--on-navy)}
+.side-head p{color:var(--on-navy-muted)}
+.work-head{background:var(--navy);color:var(--on-navy)}
+.work-head span{color:var(--on-navy-muted)}
+.day-link.active{background:var(--green2);color:var(--navy);box-shadow:inset 3px 0 0 var(--gold)}
+.day-link.done .day-index{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.day-status.ok{color:#9a7a36}
+.ch-label b{color:var(--gold)}
+.msg-block p{color:#2a3350}
+.msg-block .msg-h{color:var(--navy)}
+.prompt{background:var(--gold2)!important}
+.prompt-h{color:#9a7a36}
+.news-label{background:var(--navy);color:var(--gold)}
+h3{color:var(--navy)}
 </style>
 </head>
 <body>
